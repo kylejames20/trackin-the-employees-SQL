@@ -1,9 +1,9 @@
-INSERT INTO department (id, name);
+INSERT INTO department (id, name)
 VALUES (1, "Coaches"),
        (2, "Starters"),
        (3, "Bench");
 
-INSERT INTO role (id, title, salary, department_id);
+INSERT INTO role (id, title, salary, department_id)
 VALUES (1, "Head Coach", 90000, 1),
        (2, "Assisstant Coach", 50000, 1),
        (3, "Starting Point Guard", 50000, 2),
@@ -15,7 +15,7 @@ VALUES (1, "Head Coach", 90000, 1),
        (9, "Bench Forward", 40000, 3),
        (10, "Bench Center", 40000, 3);
 
-INSERT INTO employee(id, first_name, last_name, role_id, manager_id);
+INSERT INTO employee(id, first_name, last_name, role_id, manager_id)
 VALUES (1, "Juwan", "Howard", 1, 1),
        (2, "Phil", "Martelli", 1, 1),
        (3, "Devonte", "Jones", 2, 1),
