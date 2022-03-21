@@ -12,6 +12,7 @@ const theQuestions = [
             'role',
             'employee',
             'add a role',
+            'add department',
             'add an employee',
             'update the employees role',
             'exit'
@@ -94,7 +95,6 @@ const theMenu = async () => {
 
  const mainFunction = async () => {
     const allQuestions = await theMenu()
-    // console.log(allQuestions)
     if (allQuestions === 'department') {
         allDataBases('department')
     } 
@@ -105,18 +105,37 @@ const theMenu = async () => {
         allDataBases('employee')
     }
     else if(allQuestions === 'add a role') {
-
+        const theAnswer = await inquirer.prompt(theRolesQuestions).then((answers) => {
+            return answers;
+        });
+        addQuery('role', theAnswer)
+    }
+    else if(allQuestions === 'add department') {
+        const theAnswer = await inquirer.prompt(theDepartmentQuestion).then((answers) => {
+            return answers;
+        });
+        addQuery('department', theAnswer)
     }
     else if(allQuestions === 'add an employee') {
-
+        const theAnswer = await inquirer.prompt(theEmployeesQuestions).then((answers) => {
+            return answers;
+        });
+        addQuery('employee', theAnswer)
     }
     else if(allQuestions === 'update the employees role') {
-
+        allDataBases('employee')
+        console.log('Enter the id for the employee whose role you need changed.')
+        const theAnswer = await inquirer.prompt(otherEmployeeQuestions).then((answers) => {
+            return answers;
+        });
+        addQuery('update', theAnswer)
+        }
+    
+    else {
+         console.log('No selection made. Now exiting.')
+         process.exit()
     }
-    // else {
-    //      console.error('No selection made. Now exiting.')
-    //      process.exit()
-    // }
- }
+    mainFunction();
+}
 
- mainFunction()
+mainFunction();
