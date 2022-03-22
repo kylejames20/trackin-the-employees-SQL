@@ -8,6 +8,9 @@ const theQuestions = [
         name: 'Manager',
         message: 'What would you like to view?',
         choices: [
+            'view department',
+            'view employee',
+            'view role',
             'department',
             'role',
             'employee',
@@ -95,13 +98,13 @@ const theMenu = async () => {
 
  const mainFunction = async () => {
     const allQuestions = await theMenu()
-    if (allQuestions === 'department') {
+    if (allQuestions === 'view department') {
         allDataBases('department')
     } 
-    else if(allQuestions === 'role') {
+    else if(allQuestions === 'view role') {
         allDataBases('role')
     }
-    else if(allQuestions === 'employee') {
+    else if(allQuestions === 'view employee') {
         allDataBases('employee')
     }
     else if(allQuestions === 'add a role') {
