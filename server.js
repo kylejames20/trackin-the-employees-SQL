@@ -127,7 +127,7 @@ const theMenu = async () => {
     }
     else if(allQuestions === 'update the employees role') {
         allDataBases('employee')
-        console.log('Enter the id for the employee whose role you need changed.')
+        // console.log('Enter the id for the employee whose role you need changed.')
         const theAnswer = await inquirer.prompt(otherEmployeeQuestions).then((answers) => {
             return answers;
         });
